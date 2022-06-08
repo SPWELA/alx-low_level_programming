@@ -17,7 +17,7 @@ int main(void)
 
         largest =a > b ? (a > c ? a : c) : (b > c ?  b : c);
 
-        printf("%d is the LargestNumber\n", largest);
+        printf("%d is the largest number\n", largest);
 
         return (0);
 }
