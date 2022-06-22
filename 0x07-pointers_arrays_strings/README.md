@@ -11,6 +11,7 @@ Returns a pointer to the memory area s
 
 FYI: The standard library provides a similar function: memset. Run man memset to learn more.
 
+
 TASK 1. 
 Write a function that copies memory area.
 
@@ -23,16 +24,17 @@ Returns a pointer to dest
 FYI: The standard library provides a similar function: memcpy. Run man memcpy to learn more.
 
 
+
 TASK 2.
 Write a function that locates a character in a string.
-
-
 
 Prototype: char *_strchr(char *s, char c);
 
 Returns a pointer to the first occurrence of the character c in the string s, or NULL if the character is not found
 
 FYI: The standard library provides a similar function: strchr. Run man strchr to learn more
+
+
 
 TASK 3.
 Write a function that gets the length of a prefix substring.
@@ -42,6 +44,7 @@ Prototype: unsigned int _strspn(char *s, char *accept);
 Returns the number of bytes in the initial segment of s which consist only of bytes from accept
 
 FYI: The standard library provides a similar function: strspn. Run man strspn to learn more.
+
 
 
 TASK 4.
@@ -54,6 +57,7 @@ The _strpbrk() function locates the first occurrence in the string s of any of t
 Returns a pointer to the byte in s that matches one of the bytes in accept, or NULL if no such byte is found
 
 FYI: The standard library provides a similar function: strpbrk. Run man strpbrk to learn more.
+
 
 
 TASK 5. 
@@ -74,6 +78,8 @@ Write a function that prints the chessboard.
 
 Prototype: void print_chessboard(char (*a)[8]);
 
+
+
 TASK 7.
 Write a function that prints the sum of the two diagonals of a square matrix of integers.
 
@@ -86,10 +92,13 @@ You are allowed to use the standard library
 Note that in the following example we are casting an int[][] into an int*. This is not something you should do. The goal here is to make sure you understand how an array of array is stored in memory.
 
 
+
 TASK 8.
 Write a function that sets the value of a pointer to a char.
 
 Prototype: void set_string(char **s, char *to);
+
+
 
 TASK 9.
 Create a file that contains the password for the crackme2 executable.
