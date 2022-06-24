@@ -1,1 +1,1 @@
-T _puts
+void _puts(char *s);
