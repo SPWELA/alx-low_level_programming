@@ -4,7 +4,7 @@
 
 /**
  * main - check the code
- *SIZE: return size
+ *
  * Return: Always 0.
  */
 int main(void)
