@@ -12,6 +12,6 @@ int main(void)
     int s;
 
     s = 98 + SIZE;
-    printf("%u\n", s);
+    printf("%d\n", s);
     return (0);
 }
