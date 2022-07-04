@@ -4,14 +4,14 @@
 
 /**
  * main - check the code
- *SIZE: return size 
+ *SIZE: return size
  * Return: Always 0.
  */
 int main(void)
 {
-    char *s;
+    int s;
 
     s = 98 + SIZE;
-    printf("%s\n", s);
+    printf("%u\n", s);
     return (0);
 }
