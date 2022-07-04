@@ -1,79 +1,53 @@
+#include <stdlib.h>
+#include <stdio.h>
 #include "dog.h"
-int _strlen(char *s);
+int get_len(int i);
+char *str_cpy(char *dest, char *src);
 /**
- * new_dog - Function entry
- * Description: A function that creates a new dog
- * @name: the name of the dog
- * @age: the age of the dog
- * @owner: the owner of the dog
- * Return: a pointer to the base location
+ * new_dog - a function that creates a new dog
+ * get len of name + owner, malloc them, cpy name + owner to new
+ * @name: name
+ * @age: age
+ * @owner: owner
+ * Return: 0
  */
-
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *my_dog;
-	int name_len = 0, owner_len = 0, i = 0;
+	dog_t *new_name;
+	char *copy_name, *copy_owner;
+	unsigned int x, name_len = 0, owner_len = 0;
 
-	my_dog = malloc(sizeof(*my_dog));
-
-	if (my_dog == NULL || !(name) || age < 0 || !(owner))
+	new_name = malloc(sizeof(dog_t));
+	if (name == NULL)
+		return (NULL);
+	if (name == NULL || age <= 0 || owner == NULL)
 	{
-		free(my_dog);
+		free(new_name);
 		return (NULL);
 	}
 
-	(*my_dog).age = age;
+	for (x = 0; name[x] != '\0'; x++)
+		name_len++;
 
-	name_len = _strlen(name);
-	owner_len = _strlen(owner);
+	for (x = 0; owner[x] != '\0'; x++)
+		owner_len++;
 
-	(*my_dog).name = malloc(name_len + 1);
-	(*my_dog).owner = malloc(owner_len + 1);
-
-	if ((*my_dog).name == NULL || (*my_dog).owner == NULL)
-	{
-		free(my_dog);
-		free((*my_dog).name);
-		free((*my_dog).owner);
+	copy_name = malloc(sizeof(char) * (name_len + 1));
+	if (copy_name == NULL)
 		return (NULL);
-	}
 
-	while (i < name_len)
-	{
-		(*my_dog).name[i] = name[i];
-		i++;
-	}
-	(*my_dog).name[i] = '\0';
+	copy_owner = malloc(sizeof(char) * (owner_len + 1));
+	if (copy_owner == NULL)
+		return (NULL);
 
-	i = 0;
+	for (x = 0; x <= name_len; x++)
+		copy_name[x] = name[x];
 
-	while (i < owner_len)
-	{
-		(*my_dog).owner[i] = owner[i];
-		i++;
-	}
-	(*my_dog).owner[i] = '\0';
+	for (x = 0; x <= owner_len; x++)
+		copy_owner[x] = owner[x];
 
-	return (my_dog);
-}
-
-
-/**
- * _strlen - Entry point
- * Description - A function that returns the length of a string
- * *@s: the function accepts an input saved into s
- * Return: Always 0 (Success)
- */
-int _strlen(char *s)
-{
-	int i = 0;
-	int length = 0;
-
-	while (s[i] != '\0')
-	{
-		length += 1;
-		i++;
-	}
-
-	return (length);
+	new_name->name = copy_name;
+	new_name->owner = copy_owner;
+	new_name->age = age;
+	return (new_name);
 }
