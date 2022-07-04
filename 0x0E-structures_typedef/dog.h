@@ -1,8 +1,31 @@
 #ifndef DOG_H
 #define DOG_H
+#include <stdlib.h>
+#include <stdio.h>
+/**
+ * struct dog - A dog struct
+ * @name: First member
+ * @age: Second member
+ * @owner: Third member
+ *
+ * Description: Define a new type struct dog
+ */
+struct dog
+{
+	char *name;
+	float age;
+	char *owner;
 
-#define name  Poppy;
-#define age 3.5;
-#define owner Bob;
+};
 
-#enfif /*DOG_H*/
+/**
+ * dog_t - Typedef for struct dog
+ */
+typedef struct dog dog_t;
+
+void free_dog(dog_t *d);
+dog_t *new_dog(char *name, float age, char *owner);
+void print_dog(struct dog *d);
+void init_dog(struct dog *d, char *name, float age, char *owner);
+
+#enfif
