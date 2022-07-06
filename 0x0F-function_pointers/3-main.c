@@ -1,42 +1,49 @@
-#include "3-calc.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include "3-calc.h"
 /**
-* main - Entry point
-* Description - A very short story
-* *@argc: the function accepts an input saved into argc
-* *@argv: the function accepts an input saved into argv
-* Return: Success (0)
-*/
+ * main - get_op_func has operators correlated with
+ * func signs and funcs from op_func
+ * if not 4 arguments, return Error & exit 98
+ * if op is null, return Error & exit 99
+ * if div or mod 0, return Error & exit 100
+ * run calc, input one, operator, input two = pointer res to get_op
+ * @argc: arguments
+ * @argv: double pointer to arguments
+ * Return: 0
+ */
 int main(int argc, char *argv[])
 {
-int num1, num2;
-char *op;
+	int one, two, ans;
+	int (*res)(int, int);
+	char *get_op;
 
-if (argc != 4)
-{
-printf("Error\n");
-exit(98);
-}
+	if (argc != 4)
+	{
+		printf("Error\n");
+		exit(98);
+	}
 
-num1 = atoi(argv[1]);
-op = argv[2];
-num2 = atoi(argv[3]);
+	one = atoi(argv[1]);
+	two = atoi(argv[3]);
+	get_op = argv[2];
 
-if (get_op_func(op) == NULL || op[1] != '\0')
-{
-printf("Error\n");
-exit(99);
-}
+	/* added edge case if argv[2] was longer than 1 char*/
+	if (get_op_func(argv[2]) == NULL || argv[2][1] != '\0')
+	{
+		printf("Error\n");
+		exit(99);
+	}
 
-if ((*op == '/' && num2 == 0) ||
-(*op == '%' && num2 == 0))
-{
-printf("Error\n");
-exit(100);
-}
+	if ((*get_op == '/' || *get_op == '%') && (*argv[3] == '0'))
+	{
+		printf("Error\n");
+		exit(100);
+	}
 
-printf("%d\n", get_op_func(op)(num1, num2));
+	res = get_op_func(get_op);
+	ans = res(one, two);
 
-return (0);
+	printf("%d\n", ans);
+	return (0);
 }
