@@ -1,5 +1,5 @@
-#ifndef list_h
-#define list_h
+#ifndef _list_h
+#define _list_h
 
 #include <stdlib.h>
 #include <string.h>
@@ -20,7 +20,7 @@ typedef struct list_s
     struct list_s *next;
 } list_t;
 
-/*main functions*/
+
 int _putchar(char);
 size_t print_list(const list_t *h);
 size_t list_len(const list_t *h);
