@@ -17,8 +17,3 @@ return (-1);
 
 return (1);
 }
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-
