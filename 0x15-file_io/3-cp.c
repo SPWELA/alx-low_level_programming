@@ -13,12 +13,14 @@ int main(int argc, char **argv)
 	int length = 1024;
 	char buf[1024];
 
+	/*if the number of argument is not the correct one, exit with code 97*/
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "%s\n", "Usage: cp file_from file_to");
 		exit(97);
 	}
-
+	
+	/*if file_to already exists, truncate it*/
 	file_from = open(argv[1], O_RDONLY);
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_APPEND | O_TRUNC, 0664);
 	print_error(file_from, file_to, argv);
@@ -36,6 +38,7 @@ int main(int argc, char **argv)
 
 	close_from = close(file_from);
 
+	/*if you can not close a file descriptor , exit with code 100*/
 	if (close_from == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d", file_from);
