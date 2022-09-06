@@ -4,7 +4,7 @@
  * _strpbrk - find first occurrence of any of a set of bytes
  * @s: string
  * @accept: string of bytes to search for
- * 
+ *
  * Return: pointer to first occurrence of any of the bytes in accept
  */
 char *_strpbrk(char *s, char *accept)

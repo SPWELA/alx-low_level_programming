@@ -4,7 +4,7 @@
  * _strspn - find first occurrence of any of a set of bytes
  * @s: string
  * @accept: string of bytes to search for
- * 
+ *
  * Return: number of bytes in the initial segment of s which consist only
  */
 unsigned int _strspn(char *s, char *accept)

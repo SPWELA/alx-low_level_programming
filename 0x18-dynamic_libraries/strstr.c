@@ -1,29 +1,31 @@
 #include "main.h"
 
 /**
- * _strspn - find first occurrence of any of a set of bytes
- * @haystack: string
- * @needle: string of bytes to search for
- * 
- * Return: number of bytes in the initial segment of s which consist only
- */
+ * _strstr - finds the first occurrence of the substring.
+ * needle in the string haystack.
+ * @haystack: entire string.
+ * @needle: substring.
+ * Return: pointer to the beginning of located substring or
+ * NULL if the substring is not found.
+*/
 char *_strstr(char *haystack, char *needle)
 {
-	int i = 0, j = 0, count = 0;
+char *bhaystack;
+char *pneedle;
 
-	while (haystack[i] != '\0')
-	{
-		while (needle[j] != '\0')
-		{
-			if (haystack[i] == needle[j])
-			{
-				count++;
-				break;
-			}
-			j++;
-		}
-		j = 0;
-		i++;
-	}
-	return (needle);
+while (*haystack != '\0')
+{
+bhaystack = haystack;
+pneedle = needle;
+
+while (*haystack != '\0' && *pneedle != '\0' && *haystack == *pneedle)
+{
+haystack++;
+pneedle++;
+}
+if (!*pneedle)
+return (bhaystack);
+haystack = bhaystack + 1;
+}
+return (0);
 }
