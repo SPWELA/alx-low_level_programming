@@ -2,8 +2,13 @@
 from ctypes
 import random
 so_file = "./100-operations.so"
-my_functions = ctypes.CDLL(so_file)
 
-print(type(my_functions))
-print(my_functions.square(10)
+cops = ctypes.CDLL(so_file)
+a = random.randint(-111, 111)
+b = random.randint(-111, 111)
+print("{} + {} = {}".format(a, b, cops.add(a, b)))
+print("{} - {} = {}".format(a, b, cops.sub(a, b)))
+print("{} x {} = {}".format(a, b, cops.mul(a, b)))
+print("{} / {} = {}".format(a, b, cops.div(a, b)))
+print("{} % {} = {}".format(a, b, cops.mod(a, b)))
 print("Done")
