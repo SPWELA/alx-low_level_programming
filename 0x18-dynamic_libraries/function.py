@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from ctypes
+import ctypes
 import random
 so_file = "./100-operations.so"
 
